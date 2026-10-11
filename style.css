@@ -1,0 +1,265 @@
+/* VARIÁVEIS DE CORES E TEMA */
+:root {
+    --bg-page: #f8fafc;
+    --card-bg: #ffffff;
+    --panel-bg: #f1f5f9;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    
+    --accent-color: #0284c7;
+    --accent-hover: #0369a1;
+    --accent-light: rgba(2, 132, 199, 0.1);
+
+    --radius-lg: 16px;
+    --radius-md: 10px;
+    --radius-sm: 6px;
+    
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    --transition: all 0.25s ease;
+}
+
+body.dark-mode {
+    --bg-page: #0f172a;
+    --card-bg: #1e293b;
+    --panel-bg: #0f172a;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --border-color: #334155;
+    
+    --accent-color: #38bdf8;
+    --accent-hover: #7dd3fc;
+    --accent-light: rgba(56, 189, 248, 0.15);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 24px;
+    transition: var(--transition);
+}
+
+.app-card {
+    background-color: var(--card-bg);
+    width: 100%;
+    max-width: 680px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    padding: 32px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    font-size: 2rem;
+}
+
+.brand h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.brand p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.theme-btn {
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.panel {
+    background-color: var(--panel-bg);
+    border-radius: var(--radius-md);
+    padding: 18px;
+    margin-bottom: 18px;
+    border: 1px solid var(--border-color);
+}
+
+.panel-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.upload-zone {
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius-md);
+    background-color: var(--card-bg);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.upload-zone:hover {
+    border-color: var(--accent-color);
+    background-color: var(--accent-light);
+}
+
+.upload-zone input[type="file"] {
+    display: none;
+}
+
+.upload-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    cursor: pointer;
+}
+
+.upload-icon {
+    font-size: 1.8rem;
+}
+
+.upload-text strong {
+    display: block;
+    font-size: 0.875rem;
+}
+
+.upload-text span {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    font-size: 0.875rem;
+}
+
+.progress-container {
+    margin: 16px 0;
+    background-color: var(--panel-bg);
+    border-radius: 8px;
+    height: 22px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.progress-bar {
+    background-color: var(--accent-color);
+    height: 100%;
+    width: 0%;
+    transition: width 0.2s ease;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: var(--accent-hover);
+}
+
+.btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* LISTA DE PARTES */
+.parts-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.parts-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--card-bg);
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+    font-size: 0.875rem;
+}
+
+.btn-download-part {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.btn-download-part:hover {
+    background-color: var(--accent-hover);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.app-footer {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 0.775rem;
+    color: var(--text-secondary);
+}

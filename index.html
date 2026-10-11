@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divisor de Vídeo (Máx 249MB) - Local & Seguro</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- FFmpeg.wasm para corte de mídia de alta performance no navegador -->
+    <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.11.6/dist/ffmpeg.min.js"></script>
+</head>
+<body>
+
+    <div class="app-card">
+        <!-- CABEÇALHO COM BOTÃO DARK MODE -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="brand">
+                    <span class="brand-icon">🎬</span>
+                    <div>
+                        <h1>Divisor de Vídeo por Tamanho</h1>
+                        <p>Divida vídeos longos em partes de no máximo 249 MB automaticamente</p>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="theme-btn" aria-label="Alternar Tema">
+                    <span id="theme-icon">🌙</span>
+                </button>
+            </div>
+        </header>
+
+        <main class="app-main">
+            <!-- PAINEL 1: UPLOAD -->
+            <section class="panel">
+                <h2 class="panel-title">1. Selecionar Ficheiro de Vídeo</h2>
+                <div class="upload-zone" id="drop-zone">
+                    <input type="file" id="file-input" accept="video/*">
+                    <label for="file-input" class="upload-label">
+                        <span class="upload-icon">📹</span>
+                        <div class="upload-text">
+                            <strong id="upload-status">Clique para selecionar ou arraste um vídeo pesado</strong>
+                            <span>Suporta MP4, WebM, MOV, AVI, MKV (Máx. 249 MB por parte)</span>
+                        </div>
+                    </label>
+                </div>
+            </section>
+
+            <!-- PAINEL 2: DETALHES DO FICHEIRO SELECIONADO -->
+            <section class="panel hidden" id="file-info-panel">
+                <h2 class="panel-title">2. Informações do Vídeo</h2>
+                <div class="info-grid">
+                    <div><strong>Nome:</strong> <span id="info-name">-</span></div>
+                    <div><strong>Tamanho Total:</strong> <span id="info-size">-</span></div>
+                </div>
+            </section>
+
+            <!-- BARRA DE PROGRESSO -->
+            <div class="progress-container hidden" id="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+                <span class="progress-text" id="progress-text">0%</span>
+            </div>
+
+            <!-- AÇÃO PRINCIPAL -->
+            <div class="action-bar">
+                <button id="split-btn" class="btn btn-primary" disabled>
+                    <span>✂️</span> Dividir Vídeo em Partes (Máx 249 MB)
+                </button>
+            </div>
+
+            <!-- PAINEL 3: RESULTADOS E DOWNLOADS -->
+            <section class="panel hidden" id="results-panel">
+                <h2 class="panel-title">3. Partes Geradas para Download</h2>
+                <ul class="parts-list" id="parts-list"></ul>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <p>🔒 Processamento 100% Client-Side. Os seus vídeos não saem do seu navegador.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
